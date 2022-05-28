@@ -1,5 +1,5 @@
 {
-    "name": "content-a/upn-qr",
+    "name": "mzagmajster/upn-qr-php",
     "description": "Generate upn qr image for Slovenia.",
     "type": "library",
     "license": "MIT",
