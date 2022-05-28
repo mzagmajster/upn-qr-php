@@ -17,6 +17,11 @@ class UpnQr {
 
     private $font;
     private $image_qr;
+    
+    /*
+     * int
+    */
+    private $qr_code_size;
 
     // Data
     public $placnik_ime;
@@ -46,6 +51,11 @@ class UpnQr {
         $palette = new Imagine\Image\Palette\RGB();
         $font_color = $palette->color('#000000');
         $this->font = new Font($font_path, 20, $font_color);
+        $this->qr_code_size = 320;
+    }
+    
+    public function set_qr_code_size(size) {
+        $this->qr_code_size = $size;
     }
 
     /**
@@ -123,7 +133,7 @@ class UpnQr {
 
         // Create a basic QR code
         $qrCode = new QrCode($qr_string);
-        $qrCode->setSize(320);
+        $qrCode->setSize($this->qr_code_size);
         $qrCode->setRoundBlockSize(false, QrCode::ROUND_BLOCK_SIZE_MODE_ENLARGE);
         $qrCode->setMargin(0);
 
