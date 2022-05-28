@@ -54,7 +54,7 @@ class UpnQr {
         $this->qr_code_size = 320;
     }
     
-    public function set_qr_code_size(size) {
+    public function set_qr_code_size($size) {
         $this->qr_code_size = $size;
         return $this;
     }
