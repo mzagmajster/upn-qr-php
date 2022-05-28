@@ -16,6 +16,7 @@ class UpnQr {
     private $image;
 
     private $font;
+    private $image_qr;
 
     // Data
     public $placnik_ime;
@@ -30,6 +31,7 @@ class UpnQr {
     public $prejemnik_ulica;
     public $prejemnik_kraj;
     public $koda_namena;
+    
 
     public function __construct()
     {
@@ -126,8 +128,8 @@ class UpnQr {
         $qrCode->setMargin(0);
 
         // Add qr to upn image.
-        $image_qr = $this->imagine->load($qrCode->writeString());
-        $this->image->paste($image_qr, new Point(598,88));
+        $this->image_qr = $this->imagine->load($qrCode->writeString());
+        $this->image->paste($this->image_qr, new Point(598,88));
     }
 
     /**
@@ -152,6 +154,10 @@ class UpnQr {
 
         // Save to path.
         return $this->image->get('png');
+    }
+    
+    public function get_image_qr() {
+        return $this->image_qr;
     }
 
     /**
